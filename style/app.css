@@ -1,0 +1,139 @@
+:root {
+  --primaryColor: #dabfff;
+  --secondaryColor: #4f518c;
+  --textColor: #907ad6;
+  --lightColor: #7fdeff;
+  --darkColor: #2c2a4a;
+}
+
+@font-face {
+  font-family: "vazir";
+  src: url("/fonts/vazir.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: vazir;
+  font-weight: normal;
+  direction: rtl;
+  text-align: right;
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--primaryColor);
+}
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--darkColor);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--lightColor);
+  border-radius: 25px;
+  box-shadow: 0 0 5px var(--lightColor);
+}
+.container {
+  width: 100%;
+  transition: all 0.3s linear;
+  transform-origin: top right;
+}
+.container.active {
+  transform: rotate(15deg);
+}
+.wrapper {
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.bg {
+  width: 100%;
+  height: 50vh;
+}
+.bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.content h1 {
+  font-size: 3rem;
+}
+.content p {
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 2rem;
+}
+nav {
+  position: fixed;
+  width: 125px;
+  height: 125px;
+  border-radius: 100%;
+  background-color: var(--darkColor);
+  color: var(--primaryColor);
+  right: -50px;
+  top: -50px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  z-index: 999;
+}
+nav.active {
+  transform: rotate(-90deg);
+}
+nav .fa-times,
+nav .fa-bars {
+  font-size: 2rem;
+  position: absolute;
+}
+nav .fa-bars {
+  left: 30px;
+  top: 57%;
+}
+nav .fa-times {
+  left: 30px;
+  top: 15%;
+}
+.menu {
+  position: fixed;
+  right: -200px;
+  bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+.menu a {
+  text-decoration: none;
+  color: var(--darkColor);
+  font-size: 1.3rem;
+}
+.menu a:hover {
+  color: var(--textColor);
+}
+.menu.active {
+  right: 25px;
+  opacity: 1;
+}
+.menu.active a {
+  margin-right: 0px;
+}
+.menu.active a + a {
+  margin-right: 25px;
+}
+.menu.active a + a + a {
+  margin-right: 50px;
+}
+.menu.active a + a + a + a {
+  margin-right: 75px;
+}
